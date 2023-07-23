@@ -86,20 +86,20 @@ x-airflow-common:
 
 services:
 
-  azurite:
-    <<: *airflow-common
-    #container_name: airflow_azurite
-    image: mcr.microsoft.com/azure-storage/azurite
-    command: azurite --location /data --silent --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose --skipApiVersionCheck --disableProductStyleUrl
-    environment:
-      AZURITE_ACCOUNTS: "devstoreaccount1:key1"
-    ports:
-      - "10000:10000"  
-      - "10001:10001"  
-      - "10002:10002"
-    volumes:
-      - azurite:/var/lib/azurite/data
-    restart: always
+  # azurite:
+  #   <<: *airflow-common
+  #   #container_name: airflow_azurite
+  #   image: mcr.microsoft.com/azure-storage/azurite
+  #   command: azurite --location /data --silent --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --loose --skipApiVersionCheck --disableProductStyleUrl
+  #   environment:
+  #     AZURITE_ACCOUNTS: "devstoreaccount1:key1"
+  #   ports:
+  #     - "10000:10000"  
+  #     - "10001:10001"  
+  #     - "10002:10002"
+  #   volumes:
+  #     - azurite:/var/lib/azurite/data
+  #   restart: always
 
   postgres:
     image: postgres:13
