@@ -3,3 +3,7 @@ __azurite_db_blob__.json
 /dags/__pycache__*
 
 /__azurite_db*
+/venv/
+/.venv/
+
+__pycache__/
