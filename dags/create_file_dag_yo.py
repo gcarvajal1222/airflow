@@ -3,8 +3,15 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 def create_hello_file():
-    with open("/path/to/output/hello.txt", "w") as file:
-        file.write("hello")
+    print("whats up dude")
+    import sys
+    current_path = sys.path[0]
+    print("Current working directory:", current_path)
+    file_name = "this_is_the_file_to_see.txt"
+    content = "This is the content of the file."
+
+    with open(file_name, "w") as file:
+        file.write(content)
 
 default_args = {
     'owner': 'airflow',
