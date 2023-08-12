@@ -116,6 +116,7 @@ services:
       start_period: 5s
     restart: always
 
+
   redis:
     image: redis:latest
     expose:
@@ -144,6 +145,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    # volumes:
+    #   - airflow-webserver-volume:/app
 
   airflow-scheduler:
     <<: *airflow-common
@@ -313,3 +316,4 @@ services:
 volumes:
   postgres-db-volume:
   azurite:
+  #airflow-webserver-volume:
